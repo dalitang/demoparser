@@ -37,7 +37,7 @@ def parse_and_gen_csv(input_file: str, output_csv: str) -> None:
         for row in reader:
             # read and remove blank line
             body = row[:-NEWLINE_CHAR_LEN]
-            if not row:
+            if not body:
                 logging.warning("Skip an empty line.")
                 continue
 
