@@ -5,7 +5,7 @@ build-image:
 # 	docker push
 
 gen-test-file:
-	python -m src.parser.generator ./tests/data/input_normal.dat 10
+	python -m src.parser.generator ./tests/data/input_normal.dat 10 "<"
 
 run-acceptance-test:
 	python -m pytest tests/acceptance -vv
