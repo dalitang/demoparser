@@ -5,6 +5,7 @@
 ```
 make build-image
 ```
+(Tested under Macos. For windows, copy and run the command from Makefile.)
 
 ### Run Acceptance Test
 
