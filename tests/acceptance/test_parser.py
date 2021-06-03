@@ -6,7 +6,9 @@ from src.parser.parser import parse_and_gen_csv
 @pytest.mark.parametrize(
     "input_file, output_file",
     [
-        ("./tests/data/input_normal.dat", "./tests/data/output_normal.csv"),
+        ("./tests/data/input_normal_left_aligned.dat", "./tests/data/output_normal_left_aligned.csv"),
+        ("./tests/data/input_normal_right_aligned.dat", "./tests/data/output_normal_right_aligned.csv"),
+        ("./tests/data/input_normal_center_aligned.dat", "./tests/data/output_normal_center_aligned.csv"),
         ("./tests/data/input_header_only.dat", "./tests/data/output_header_only.csv"),
     ]
 )

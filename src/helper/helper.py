@@ -19,15 +19,21 @@ def charactor_set() -> List:
 
 
 def get_column_names() -> List[str]:
-    """Return each column name (with whitespace) in a list.
+    """Return each column name in a list according to spec.json.
     """
-    return [k.ljust(v) for k,v in get_colume_and_offset().items()]
+    return [k for k,_ in get_colume_and_offset().items()]
 
 
 def get_fixed_len() -> List[int]:
     """Return offset of each field in a list.
     """
     return [v for _,v in get_colume_and_offset().items()]
+
+
+def get_payload(orig: List[str]) -> List[str]:
+    """Remove whitepace (right/left/center aligned) of each field and return the list. 
+    """
+    return [e.strip() for e in orig]
 
 
 def encode_cp1252(inputs: str) -> bytes:
@@ -40,3 +46,8 @@ def decode_cp1252(inputs: bytes) -> str:
     """Return string with cp1252 decoding.
     """
     return inputs.decode("cp1252")
+
+
+if __name__ == "__main__":
+    pass
+    print(charactor_set())

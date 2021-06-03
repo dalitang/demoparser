@@ -4,7 +4,7 @@ import struct
 import logging
 from typing import List
 
-from src.helper.helper import get_fixed_len, get_column_names
+from src.helper.helper import get_fixed_len, get_column_names, get_payload
 
 
 # newline "\r\n" charactor length 
@@ -29,7 +29,7 @@ def parse_and_gen_csv(input_file: str, output_csv: str) -> None:
 
         # frist line must be the header
         header = reader.readline()[:-NEWLINE_CHAR_LEN]
-        if _split_decode_cp1252(offsets, header) == column_names:
+        if get_payload(_split_decode_cp1252(offsets, header)) == column_names:
             writer.writerow(column_names)
         else: # found none blank line before finding header
             raise RuntimeError("Wrong Header or not found!")
@@ -46,10 +46,10 @@ def parse_and_gen_csv(input_file: str, output_csv: str) -> None:
                 raise RuntimeError(f"Wrong fixed width! Expect {fixed_len} but got {len(body)}.")
 
             # write body
-            writer.writerow(_split_decode_cp1252(offsets, body))
+            writer.writerow(get_payload(_split_decode_cp1252(offsets, body)))
 
 
-def _split_decode_cp1252(field_width: List[int], row: bytes) -> List[bytes]:
+def _split_decode_cp1252(field_width: List[int], row: bytes) -> List[str]:
     """Decode and return each field in a list.
     """
     fmtstr = " ".join([str(offset)+"s" for offset in field_width])
