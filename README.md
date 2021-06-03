@@ -14,5 +14,5 @@ make build-image
 
 ### Run parser with your "fixed width" input file:
 
-1. copy your test input file into current workspace
+1. copy your test input file (left/right/center or any aligned fixed width) into current workspace
 2. `./run_me.sh ./path/to/input_file ./path/to/output.csv`
