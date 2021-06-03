@@ -50,4 +50,3 @@ def decode_cp1252(inputs: bytes) -> str:
 
 if __name__ == "__main__":
     pass
-    print(charactor_set())
