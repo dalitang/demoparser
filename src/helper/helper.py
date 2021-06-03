@@ -12,7 +12,7 @@ def get_colume_and_offset() -> Dict[str, int]:
         return dict(zip(spec['ColumnNames'], list(map(int, spec['Offsets']))))
 
 
-def charactor_set() -> List:
+def charactor_set() -> List[str]:
     """Return a list of "Windows-1252" (cp1252) charactors.
     """
     return [charactor for lines in constants.charactor_subset.splitlines() for charactor in lines.split(" ")]
